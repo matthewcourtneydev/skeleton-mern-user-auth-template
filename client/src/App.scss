@@ -1,0 +1,44 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  .App {
+    #nav-bar {
+        background-color: #3333336c;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 10px 20px;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        } 
+
+        button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1rem;
+
+            li {
+                padding-left: 10px;
+            }
+        }
+    }
+
+    .page {
+        padding: 20px;
+    }
+  }
