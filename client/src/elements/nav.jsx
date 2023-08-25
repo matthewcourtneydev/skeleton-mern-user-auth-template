@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Nav = (props) => {
-      const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn)
+      const [isLoggedIn, setIsLoggedIn] = useState(false)
     
       return (
         <nav id="nav-bar">
