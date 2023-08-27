@@ -10,10 +10,19 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    password: {
+        type: String,
+        required: true
+    },
     dataOfAccountCreation: {
         type: Date,
         required: true,
         default: Date.now
+    },
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 })
 

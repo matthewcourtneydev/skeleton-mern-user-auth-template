@@ -2,14 +2,28 @@ GET http://localhost:3001/members
 ###
 GET http://localhost:3001/members/64eaa266f49ccae6eb463859
 
+
+###
+
+DELETE http://localhost:3001/members/64eaabc0633a299d39192979
+
+
+###
+
+
+
+
+
+
 ###
 
 POST http://localhost:3001/members
 Content-Type: application/json
 
 {
-    "name": "XYZ",
-    "email": "xyz@gmail.com"
+    "name": "Test Admin 1",
+    "email": "testadmin3@gmail.com",
+    "password": "admin1"
 }
 
 ###

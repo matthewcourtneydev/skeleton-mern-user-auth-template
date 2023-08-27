@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Member = require('../models/member')
+const Member = require('../models/member');
+const { authMember } = require('../permissions/isAuthenticated')
+const { isAdmin } = require('../permissions/isAdmin')
 
 // GETTING ALL
 router.get('/', async (req, res) => {
@@ -12,14 +14,15 @@ router.get('/', async (req, res) => {
     }
 })
 // GETTING ONE
-router.get('/:id', getMember, (req, res) => {
+router.get('/:id', getMember, isAdmin, (req, res) => {
     res.json(res.member)
 })
 // CREATING ONE
 router.post('/', async (req, res) => {
     const member = new Member({
         name: req.body.name,
-        email: req.body.email
+        email: req.body.email,
+        password: req.body.password
     })
     
     try {
@@ -55,6 +58,7 @@ router.delete('/:id', getMember, async (req, res) => {
     }
 })
 
+
 async function getMember(req, res, next) {  
     let member
     try {
@@ -66,7 +70,7 @@ async function getMember(req, res, next) {
         return res.status(500).json({ message: err.message})
     }
 
-    res.member = member
+    res.member = member;
     next()
 }
 
