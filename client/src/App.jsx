@@ -13,7 +13,7 @@ const App = () => {
   const [isLoggedIn, setLoggedIn] = useState(true);
 
   useEffect(() => {
-    fetch("/api")
+    fetch("/members")
       .then((res) => res.json())
       .then((data) => {
         setBackendData(data);

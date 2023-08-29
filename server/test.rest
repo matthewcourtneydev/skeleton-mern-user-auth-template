@@ -1,6 +1,10 @@
 GET http://localhost:3001/members
 ###
-GET http://localhost:3001/members/64eaa266f49ccae6eb463859
+GET http://localhost:3001/members/64eb7bccc5df70f5a2fc70ee
+
+
+###
+GET http://localhost:3001/members/64eb7a91ba955d48721a53a1
 
 
 ###
@@ -9,11 +13,6 @@ DELETE http://localhost:3001/members/64eaabc0633a299d39192979
 
 
 ###
-
-
-
-
-
 
 ###
 

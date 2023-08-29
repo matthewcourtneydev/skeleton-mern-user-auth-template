@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Member = require('../models/member');
 const { authMember } = require('../permissions/isAuthenticated')
-const { isAdmin } = require('../permissions/isAdmin')
+const { isAdmin } = require('../permissions/isAdmin');
+const { isEmailNew } = require('../permissions/isEmailNew')
 
 // GETTING ALL
 router.get('/', async (req, res) => {
@@ -14,13 +15,15 @@ router.get('/', async (req, res) => {
     }
 })
 // GETTING ONE
-router.get('/:id', getMember, isAdmin, (req, res) => {
+router.get('/:id', getMember, (req, res) => {
     res.json(res.member)
 })
+
 // CREATING ONE
-router.post('/', async (req, res) => {
+router.post('/', isEmailNew, async (req, res) => {
     const member = new Member({
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password
     })
